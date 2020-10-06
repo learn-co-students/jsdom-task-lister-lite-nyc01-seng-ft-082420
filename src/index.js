@@ -40,9 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
       sub.innerHTML = 'change'
       e.target.parentNode.append(sub)
       sub.addEventListener('click', i => {
-        console.log(i.tartge)
         let a = i.target.parentNode
-        a.textContent = edit.value
+        a.childNodes[0].nodeValue = edit.value
+        a.childNodes[3].remove();
+        a.childNodes[3].remove();
+        //a.textContent = edit.value
       })
     })
     form.reset();
