@@ -6,10 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let ulselect = document.getElementById('tasks')
     let createli = document.createElement('li')
     let del = document.createElement('button')
+    let edit = document.createElement('button')
     let prior = document.getElementById('select-priority').value
     del.innerHTML = "x";
+    edit.innerHTML = "Edit";
     createli.innerHTML = a;
     createli.appendChild(del);
+    createli.appendChild(edit);
     ulselect.appendChild(createli);
     switch (prior) {
       case 'high':
@@ -28,6 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     del.addEventListener('click', function(e){
       createli.remove();
+    })
+    edit.addEventListener('click', function(e){
+      let edit = document.createElement('input')
+      edit.type = 'text';
+      e.target.parentNode.append(edit)
+      let sub = document.createElement('button')
+      sub.innerHTML = 'change'
+      e.target.parentNode.append(sub)
+      sub.addEventListener('click', i => {
+        console.log(i.tartge)
+        let a = i.target.parentNode
+        a.textContent = edit.value
+      })
     })
     form.reset();
     const arr = []
